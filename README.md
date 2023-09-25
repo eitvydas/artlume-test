@@ -7,6 +7,33 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+# Artlume technical test
+
+I have built this project using laravel 10 (with vite) and also using laravel breeze starter package for authentication with blade setup.
+
+## Steps for building and running the application
+
+- Clone git repository from https://github.com/eitvydas/artlume-test)
+- Create an empty mysql database
+- Create .env file by copying .env.example and update database environment variables with details created in the above step
+- In terminal run `php artisan migrate` command (to create the database tables)
+- Run `composer update` and `npm install` commands
+- Run `php artisan serve` to start a development server
+- Open you web browser application and type in `localhost:8000`
+
+By this point you should be able to see the login page.
+
+> **_NOTE: There are no data (users/tasks) in the database at this point.
+> You need to register for the app first to be able to login by using `Register Here` link located next to login button in the log in form._**
+
+After registering it should redirect you to the dashboard/home page where you can see and add new tasks.
+
+After you created a task you can see it in the dashboard and you can go to edit task page (found in the actions column) `Edit` button.
+Actions column also has a delete button/link, but you can only see if the user is `admin`. There is no option to set yourself as an admin from UI, but you can update you user record in the database by setting `1 or true` in `admin` column users table.
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
