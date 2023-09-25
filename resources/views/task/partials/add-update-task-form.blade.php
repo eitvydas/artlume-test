@@ -4,14 +4,14 @@
     <!-- Title -->
     <div>
         <x-input-label for="title" :value="__('Title')" />
-        <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', $task->title)" required autofocus autocomplete="title" />
+        <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', (!empty($task) ? $task->title : ''))" required autofocus autocomplete="title" />
         <x-input-error :messages="$errors->get('title')" class="mt-2" />
     </div>
 
     <!-- Description -->
     <div class="mt-4">
         <x-input-label for="description" :value="__('Description')" />
-        <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description', $task->description)" autocomplete="description" />
+        <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description', (!empty($task) ? $task->description : ''))" autocomplete="description" />
         <x-input-error :messages="$errors->get('description')" class="mt-2" />
     </div>
 
@@ -19,7 +19,7 @@
     <div class="mt-4">
         <x-input-label for="due_date" :value="__('Due Date')" />
 
-        <x-text-input id="due_date" class="block mt-1 w-full" type="date" name="due_date" :value="old('due_date') ?? $task->due_date" required autocomplete="due_date" />
+        <x-text-input id="due_date" class="block mt-1 w-full" type="date" name="due_date" :value="old('due_date', (!empty($task) ? $task->due_date : ''))" required autocomplete="due_date" />
 
         <x-input-error :messages="$errors->get('due_date')" class="mt-2" />
     </div>
@@ -30,8 +30,8 @@
         <x-select id="status" class="block mt-1 w-full" name="status">
             <option value="" >{{ __('- Please Select Status -') }}</option>
 
-            <option {{$task->status === 'pending' ? 'selected' : ''}} value="pending">Pending</option>
-            <option {{$task->status === 'completed' ? 'selected' : ''}} value="completed">Completed</option>
+            <option {{ !empty($task) && $task->status === 'pending' ? 'selected' : '' }} value="pending">Pending</option>
+            <option {{ !empty($task) && $task->status === 'completed' ? 'selected' : '' }} value="completed">Completed</option>
         </x-select>
 
         <x-input-error :messages="$errors->get('status')" class="mt-2" />

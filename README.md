@@ -17,8 +17,10 @@ I have built this project using laravel 10 (with vite) and also using laravel br
 - Clone git repository from https://github.com/eitvydas/artlume-test)
 - Create an empty mysql database
 - Create .env file by copying .env.example and update database environment variables with details created in the above step
-- In terminal run `php artisan migrate` command (to create the database tables)
 - Run `composer update` and `npm install` commands
+- In terminal run `php artisan migrate` command (to create the database tables)
+- Run `php artisan key:generate` to generate Laravel application encryption key
+- Run `npm run dev` to bundle assets with Vite
 - Run `php artisan serve` to start a development server
 - Open you web browser application and type in `localhost:8000`
 
